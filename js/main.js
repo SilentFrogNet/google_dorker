@@ -33,3 +33,19 @@ function myUpdateFunction(event) {
     document.getElementById('outputCodeArea').value = code;
 }
 workspace.addChangeListener(myUpdateFunction);
+
+
+$(document).ready(function() {
+
+    $('#btnSearchGoogle').click(function() {
+        codeText = $('#outputCodeArea').val();
+        if ($.trim(codeText) != "") {
+            var url = "https://www.google.it/search?q=" + encodeURIComponent();
+            window.open(url, "_blank");
+        }
+        else {
+            alert("Build a Google Dork Query by combining the blocks.")
+        }
+    });
+
+});

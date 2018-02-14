@@ -30,7 +30,8 @@
                     </div>
                     <div class="col-md-4">
                         <h2>Resulting query:</h2>
-                        <textarea id="outputCodeArea" style="width: 100%; height: 435px;"></textarea>
+                        <textarea id="outputCodeArea" style="width: 100%; height: 390px;"></textarea>
+                        <a class="btn btn-primary btn-block" id="btnSearchGoogle">Search in Google</a>
                     </div>
                 </div>
             </div>
@@ -45,25 +46,31 @@
         </footer>
 
 
-        <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
-            <block type="logic_operation">
-                <field name="OP">AND</field>
-            </block>
-            <block type="logic_negate"></block>
-            <sep></sep>
-            <block type="text">
-                <field name="TEXT"></field>
-            </block>
-            <sep></sep>
-            <block type="synonyms">
-                <field name="TEXT"></field>
-            </block>
-            <block type="normal_text">
-                <field name="TEXT"></field>
-            </block>
+        <xml id="toolbox" style="display: none;">
+            <category name="Special Chars" colour="#5C33A6">
+                <block type="normal_text">
+                    <field name="TEXT"></field>
+                </block>
+                <block type="text">
+                    <field name="TEXT"></field>
+                </block>
+                <block type="synonyms">
+                    <field name="TEXT"></field>
+                </block>
+                <sep></sep>
+                <block type="logic_operation">
+                    <field name="OP">AND</field>
+                </block>
+                <block type="logic_negate"></block>
+            </category>
+            <category name="Operators" colour="#5CA65C"> 
+                <block type="in_title"></block>
+                <block type="site"></block>
+                <block type="in_url"></block>
+            </category>
         </xml>
 
-        <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display:none">
+        <xml id="workspaceBlocks" style="display:none">
             <variables></variables>
             <block type="start" deletable="false" id="[;5ya+(J,vP-t]0!mozK" x="13" y="38"></block>
         </xml>

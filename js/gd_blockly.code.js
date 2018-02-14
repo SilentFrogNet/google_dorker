@@ -17,3 +17,24 @@ Blockly.Dorker['normal_text'] = function (block) {
   var code = block.getFieldValue('TEXT');
   return [code, Blockly.Dorker.ORDER_ATOMIC];
 };
+
+
+/* [Operators] */
+Blockly.Dorker['in_title'] = function (block) {
+  var value_name = Blockly.Dorker.valueToCode(block, 'VALUE', Blockly.Dorker.ORDER_ATOMIC);
+  var code = 'intitle:' + value_name;
+  return [code, Blockly.Dorker.ORDER_ATOMIC];
+};
+
+Blockly.Dorker['site'] = function (block) {
+  var value_name = Blockly.Dorker.valueToCode(block, 'VALUE', Blockly.Dorker.ORDER_ATOMIC);
+  var code = 'site:' + value_name;
+  return [code, Blockly.Dorker.ORDER_ATOMIC];
+};
+
+Blockly.Dorker['in_url'] = function (block) {
+  var value_name = Blockly.Dorker.valueToCode(block, 'VALUE', Blockly.Dorker.ORDER_ATOMIC);
+  var code = 'inurl:' + value_name;
+  return [code, Blockly.Dorker.ORDER_ATOMIC];
+};
+/* [/Operators] */

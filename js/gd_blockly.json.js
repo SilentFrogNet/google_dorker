@@ -26,13 +26,13 @@ Blockly.Blocks['synonyms'] = {
       "args0": [
         {
           "type": "input_value",
-          "name": "VALUE",
+          "name": "TEXT",
           "check": "String"
         }
       ],
       "inputsInline": false,
       "output": "String",
-      "colour": 230,
+      "colour": "%{BKY_TEXTS_HUE}",
       "tooltip": "Allow synonyms of the specified word",
       "helpUrl": ""
     });
@@ -52,38 +52,46 @@ Blockly.Blocks['normal_text'] = {
       ],
       "inputsInline": true,
       "output": "String",
-      "colour": 230,
+      "colour": "%{BKY_TEXTS_HUE}",
       "tooltip": "Create normal text (without quotes)."
     });
   }
 };
 
-// // Redefines logic:logic_boolean
-// Blockly.Blocks['logic_boolean'] = {
-//   init: function () {
-//     this.jsonInit({
-//       "type": "logic_boolean",
-//       "message0": "%1",
-//       "args0": [
-//         {
-//           "type": "field_dropdown",
-//           "name": "BOOL",
-//           "options": [
-//             ["%{BKY_LOGIC_BOOLEAN_TRUE}", "TRUE"],
-//             ["%{BKY_LOGIC_BOOLEAN_FALSE}", "FALSE"]
-//           ]
-//         }
-//       ],
-//       "output": "Boolean",
-//       "colour": "%{BKY_LOGIC_HUE}",
-//       "tooltip": "%{BKY_LOGIC_BOOLEAN_TOOLTIP}",
-//       "helpUrl": "%{BKY_LOGIC_BOOLEAN_HELPURL}"
-//     });
-//   }
-// };
-// };
+// Redefines logic:logic_operation
+Blockly.Blocks['logic_operation'] = {
+  init: function () {
+    this.jsonInit({
+      "type": "logic_operation",
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "A"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OP",
+          "options": [
+            ["%{BKY_LOGIC_OPERATION_AND}", "AND"],
+            ["%{BKY_LOGIC_OPERATION_OR}", "OR"]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "B"
+        }
+      ],
+      "inputsInline": true,
+      "output": "String",
+      "colour": "%{BKY_LOGIC_HUE}",
+      "helpUrl": "%{BKY_LOGIC_OPERATION_HELPURL}",
+      "extensions": ["logic_op_tooltip"]
+    });
+  }
+};
 
-// Redefines logic:logic_boolean
+// Redefines logic:logic_negate
 Blockly.Blocks['logic_negate'] = {
   init: function () {
     this.jsonInit({
@@ -97,8 +105,72 @@ Blockly.Blocks['logic_negate'] = {
       ],
       "output": "String",
       "colour": "%{BKY_LOGIC_HUE}",
-      "tooltip": "%{BKY_LOGIC_NEGATE_TOOLTIP}",
-      "helpUrl": "%{BKY_LOGIC_NEGATE_HELPURL}"
+      "tooltip": "%{BKY_LOGIC_NEGATE_TOOLTIP}"
     });
   }
 };
+
+
+/* [Operators] */
+var OPERATORS_COLOUR = 230;
+
+Blockly.Blocks['in_title'] = {
+  init: function() {
+    this.jsonInit({
+      "type": "in_title",
+      "message0": "intitle: %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "output": "String",
+      "colour": OPERATORS_COLOUR,
+      "tooltip": ""
+    });
+  }
+};
+
+Blockly.Blocks['site'] = {
+  init: function () {
+    this.jsonInit({
+      "type": "site",
+      "message0": "site: %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "output": "String",
+      "colour": OPERATORS_COLOUR,
+      "tooltip": ""
+    });
+  }
+};
+
+Blockly.Blocks['in_url'] = {
+  init: function () {
+    this.jsonInit({
+      "type": "in_url",
+      "message0": "inurl: %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "output": "String",
+      "colour": OPERATORS_COLOUR,
+      "tooltip": ""
+    });
+  }
+};
+/* [/Operators] */
